@@ -21,6 +21,8 @@ FROM ubuntu:18.04
 
 RUN apt-get update --fix-missing
 
+RUN apt-get install -y apt-utils
+
 COPY install/ubuntu_install_core.sh /install/ubuntu_install_core.sh
 RUN bash /install/ubuntu_install_core.sh
 

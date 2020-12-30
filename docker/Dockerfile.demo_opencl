@@ -36,6 +36,11 @@ RUN apt-get install -y git
 # make wget unzip libtinfo-dev libz-dev libcurl4-openssl-dev
 RUN apt-get install -y libopenblas-dev
 
+# ubuntu18.04 does not support cmake 3.13
+RUN echo "Installing Cmake"
+COPY install/ubuntu1804_install_cmake.sh /install/ubuntu1804_install_cmake.sh
+RUN bash /install/ubuntu1804_install_cmake.sh
+
 # RUN echo "Installing gtest"
 # RUN apt-get install -y libgtest-dev
 # RUN cd /usr/src/gtest && cmake CMakeLists.txt && make && cp *.a /usr/lib
